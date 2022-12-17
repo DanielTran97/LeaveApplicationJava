@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Person Listing</title>
+</head>
+<body>
+    <h1>Company Staff</h1>
+
+    <br>
+    <a href="/adm/add">Add New Staff</a>
+    <br>
+
+    <table border="1">
+        <tr>
+            <th>Staff ID</th>
+            <th>Full Name</th>
+            <th>Designation</th>
+            <th>Reporting Staff ID</th>
+            <th>Contact Number</th>
+            <th>Address</th>
+            <th>Email</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <tr th:each="staff: ${user}">
+            <td th:utext="${staff.username}"></td>
+            <td th:text="${staff.fullname}"></td>
+            <td th:text="${staff.designation}"></td>
+            <td th:text="${staff.reportingStaffID}"></td>
+            <td th:text="${staff.ContactNum}"></td>
+            <td th:text="${staff.Address}"></td>
+            <td th:text="${staff.Email}"></td>
+            <td>
+                <form th:action="@{/adm/update}" th:object="${staff}" method="POST">
+                    <input type="hidden" name="username" th:value="*{username}" />
+                    <input type="hidden" name="fullName" th:value="*{fullname}" />
+                    <input type="hidden" name="designation" th:value="*{designation}" />
+                    <input type="hidden" name="reportingStaffID" th:value="*{reportingStaffID}" />
+                    <input type="hidden" name="ContactNum" th:value="*{ContactNum}" />
+                    <input type="hidden" name="Address" th:value="*{Address}" />
+                    <input type="hidden" name="Email" th:value="*{Email}" />
+                    <input type="submit" value="Update">
+                </form>
+            </td>
+            <td>
+                <form th:action="@{/adm/deleteStaff}" th:object="${staff}" method="POST">
+                    <input type="hidden" name="username" th:value="*{username}" />
+                    <input type="hidden" name="fullName" th:value="*{fullname}" />
+                    <input type="hidden" name="designation" th:value="*{designation}" />
+                    <input type="hidden" name="reportingStaffID" th:value="*{reportingStaffID}" />
+                    <input type="hidden" name="ContactNum" th:value="*{ContactNum}" />
+                    <input type="hidden" name="Address" th:value="*{Address}" />
+                    <input type="hidden" name="Email" th:value="*{Email}" />
+                    <input type="submit" value="Delete">
+                </form>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
