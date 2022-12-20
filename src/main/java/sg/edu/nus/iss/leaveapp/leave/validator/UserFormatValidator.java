@@ -33,46 +33,29 @@ public class UserFormatValidator implements Validator {
         String AddressCheck = Address.getAddress();
         String EmailCheck = Email.getEmail();
 
-        if(!UserNameCheck.isBlank() || 
-            !FullNameCheck.isBlank() ||
-            !passwordCheck.isBlank() ||
-            !designationCheck.isBlank() ||
-            !RepStaffIdCheck.isBlank() ||
-            !ContactCheck.isBlank() ||
-            !AddressCheck.isBlank() ||
-            !EmailCheck.isBlank()){
-            System.out.println("username: " + UserNameCheck);
-            System.out.println("fullname: " + FullNameCheck);
-            System.out.println("password: " + passwordCheck);
-            System.out.println("designation: " + designationCheck);
-            System.out.println("reportingStaffID: " + RepStaffIdCheck);
-            System.out.println("ContactNum: " + ContactCheck);
-            System.out.println("Address: " + AddressCheck);
-            System.out.println("Email: " + EmailCheck);
-            if(UserNameCheck.isBlank()){
-                error.rejectValue("username", "Username cannot be empty");
-            }
-            if(!FullNameCheck.isBlank()){
-                error.rejectValue("fullname", "Name cannot be empty");
-            }
-            if(!passwordCheck.isBlank()){
-                error.rejectValue("password", "Please indicate a password for your account");
-            }
-            if(!designationCheck.isBlank()){
-                error.rejectValue("designation", "Please indicate your company's designation");
-            }
-            if(!RepStaffIdCheck.isBlank()){
-                error.rejectValue("reportingStaffID", "Please indicate your superior's ID");
-            }
-            if(!ContactCheck.isBlank()){
-                error.rejectValue("ContactNum", "Contact number cannot be empty");
-            }
-            if(!AddressCheck.isBlank()){
-                error.rejectValue("Address", "Address cannot be empty");
-            }
-            if(!EmailCheck.isBlank()){
-                error.rejectValue("Email", "Please indicate your company's email");
-            }
+        if(UserNameCheck.isBlank()){
+            error.rejectValue("username", "Username cannot be empty");
+        }
+        if(FullNameCheck.isBlank()){
+            error.rejectValue("fullname", "Name cannot be empty");
+        }
+        if(passwordCheck.isBlank()){
+            error.rejectValue("password", "Please indicate a password for your account");
+        }
+        if(designationCheck.isBlank()){
+            error.rejectValue("designation", "Please indicate your company's designation");
+        }
+        if(RepStaffIdCheck.isBlank()){
+            error.rejectValue("reportingStaffID", "Please indicate your superior's ID");
+        }
+        if(ContactCheck.isBlank()){
+            error.rejectValue("ContactNum", "Contact number cannot be empty");
+        }
+        if(AddressCheck.isBlank()){
+            error.rejectValue("Address", "Address cannot be empty");
+        }
+        if(EmailCheck.isBlank()){
+            error.rejectValue("Email", "Please indicate your company's email");
         }
     }
 }

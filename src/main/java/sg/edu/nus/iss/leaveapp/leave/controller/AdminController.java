@@ -111,9 +111,9 @@ public class AdminController {
 
 	@PostMapping("/add")
 	public String saveStaff(@Valid @ModelAttribute(value= "User") User s, BindingResult bindingResult, Model model){
-		// if(bindingResult.hasErrors()){
-		// 	return "/add";
-		// }
+		if(bindingResult.hasErrors()){
+			return "addstaff";
+		}
 		userService.AddEmployee(s);
 		model.addAttribute("User", s);
 		return "redirect:/adm/managestaff";		
@@ -123,7 +123,5 @@ public class AdminController {
 	public String deleteStaffRecord(@ModelAttribute(value= "User") User s) {
 		userService.RemoveEmployee(s);
 		return "redirect:/adm/managestaff";
-	}
-
-	
+	}	
 }
